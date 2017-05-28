@@ -85,4 +85,6 @@ body {
 optgroup {
     font-weight: lighter;
     font-style: italic;
+    background-image: linear-gradient(#E0E0E0,#F8FAFD);
+    border-bottom: 1px #E0E0E0 solid;
 }
