@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BrowserStack Chrome Extension</title>
+    <link rel="stylesheet" href="popup.css">
+    <script type="application/javascript" src="jquery-3.2.1.min.js"></script>
+    <script type="application/javascript" src="popup.js"></script>
+</head>
+<body>
+<div class="content">
+    <span>Quickly test any website with BrowserStack</span>
+    <p><small>Instant access to all real mobile and desktop browsers. </small></p>
+    <div class="main-content">
+        <select size="5" class="dropdown" id="platform_dropdown">
+            <optgroup label=" Select Platform">
+            </optgroup>
+        </select>
+        <select size="5" class="dropdown" id="OS_dropdown">
+            <optgroup label="Select OS">
+            </optgroup>
+        </select>
+        <select size="5" class="dropdown" id="browser_dropdown">
+            <optgroup label="Select Browser">
+            </optgroup>
+        </select>
+        <input type="text" id="web_link" placeholder="Enter URL to test">
+        <div class="submit_block">
+            <button class="btn btn-submit" id="launch_test">Submit</button>
+        </div>
+        <div class="option left"><a href="https://www.browserstack.com" target="_blank" id="modern-link">browserstack.com</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

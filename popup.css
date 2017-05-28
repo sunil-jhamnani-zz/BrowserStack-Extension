@@ -1,0 +1,88 @@
+body {
+    margin: 0px;
+
+}
+.content {
+    min-width: 500px;
+    min-height: 300px;
+    background: #27BCEE;
+    padding: 10px 0px 0px 10px;
+    font-family: "Helvetica Neue", "Lucida Grande", sans-serif;
+    font-weight: 300;
+    color: #FFFFFF;
+    box-sizing: border-box;
+    background-repeat: no-repeat;
+    background-position: 285px 220px;
+}
+
+.dropdown, .btn {
+    vertical-align: middle;
+    font-size: 0.9rem;
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent;
+    border-image: initial;
+    border-radius: 0.25rem;
+    transition: all 0.2s ease-in-out;
+    color: black;
+    width: 32%;
+    margin-top: 10px;
+    text-transform: capitalize;
+    overflow: scroll;
+}
+
+.btn-submit {
+    background-color: rgb(2, 117, 216);
+    border-color: rgb(2, 117, 216);
+    color: white;
+    cursor: pointer;
+    width: 50%;
+}
+
+.submit_block {
+    text-align: center;
+    width: 50%;
+    margin: 0 auto;
+    line-height: 5;
+}
+
+.option.left {
+    left: 0px;
+    bottom: 8px;
+    padding-left: 20px;
+}
+.option {
+    display: inline-block;
+    position: absolute;
+    background-color: #426FB6;
+    height: 25px;
+    width: 179px;
+    box-sizing: border-box;
+    font-size: 0.95em;
+    line-height: 25px;
+}
+
+.left a {
+    color: #ffffff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#web_link {
+    width: 96%;
+    padding: 0.2rem 0.2rem;
+    font-size: 0.9rem;
+    -webkit-background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: .25rem;
+    margin-top: 10px;
+}
+
+#web_link::-webkit-input-placeholder {
+    font-style: italic;
+}
+
+optgroup {
+    font-weight: lighter;
+    font-style: italic;
+}

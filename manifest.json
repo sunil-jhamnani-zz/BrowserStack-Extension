@@ -1,0 +1,17 @@
+{
+  "manifest_version": 2,
+  "name": "BS_extension",
+  "version": "0.1",
+
+  "browser_action": {
+    "default_icon": "icon.png",
+    "default_popup": "popup.html",
+    "default_title": "BrowserStack Quick Launch"
+  },
+
+  "permissions": [
+    "https://*/*",
+    "http://*/*"
+  ]
+
+}
