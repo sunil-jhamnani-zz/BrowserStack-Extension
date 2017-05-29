@@ -18,29 +18,46 @@ var App = {
             $("#platform_dropdown").change(function () {
                 $("#OS_dropdown option.os").remove();
                 $("#browser_dropdown option.browser").remove();
-                load_os($("#platform_dropdown").val());
                 App.platform = $("#platform_dropdown").val();
+                if (App.platform == "mobile") {
+                    $("#browser_dropdown").hide();
+                    $("#device_dropdown").show();
+                }
+                else {
+                    $("#device_dropdown").hide();
+                    $("#browser_dropdown").show();
+                }
+                load_os($("#platform_dropdown").val());
+
             });
 
             $("#OS_dropdown").change(function () {
                 $("#browser_dropdown option.browser").remove();
                 if ($("#platform_dropdown").val() == "mobile") {
                     load_devices($("#platform_dropdown").val(), $("#OS_dropdown").val());
+                    App.query_params.os = App.browser_data[App.platform][$("#OS_dropdown").val()].os;
                 }
                 else {
-                    load_browsers($("#platform_dropdown").val(), $("#OS_dropdown").val())
+                    load_browsers($("#platform_dropdown").val(), $("#OS_dropdown").val());
+                    App.query_params.os = App.browser_data[App.platform][$("#OS_dropdown").val()].os;
+                    App.query_params.os_version = App.browser_data[App.platform][$("#OS_dropdown").val()].os_version;
                 }
-                App.query_params.os = App.browser_data[App.platform][$("#OS_dropdown").val()].os;
-                App.query_params.os_version = App.browser_data[App.platform][$("#OS_dropdown").val()].os_version;
+
             });
 
             $("#browser_dropdown").change(function () {
                 [App.query_params.browser, App.query_params.browser_version] =  $("#browser_dropdown").val().split(" ");
             });
             
+            $("#device_dropdown").change(function () {
+                [App.query_params.device, App.query_params.os_version] = $("#device_dropdown").val().split(":");
+                App.query_params.device_browser = "chrome";
+            });
+
             $("#launch_test").click(function () {
                 test_url($("#web_link").val());
             })
+
         });
     }
 
@@ -64,7 +81,7 @@ var App = {
 
     function load_devices(platform, os_index) {
         $.each(App.browser_data[platform][os_index].devices, function (index, value) {
-            $("#browser_dropdown").append(get_option(value.device, value.device, "browser"))
+            $("#device_dropdown").append(get_option(value.device, value.device + ":" + value.os_version, "browser"))
         })
     }
 
@@ -84,5 +101,6 @@ var App = {
         App.url_to_launch = App.URL_integration_api + $.param(App.query_params) + "&" + $.param(defaultParams);
         chrome.tabs.create({url: App.url_to_launch, selected: true});
     }
+
     init();
 })(App);
